@@ -1,0 +1,273 @@
+
+$body-bgc: #fafafa;
+$theme-color: #1bbc9b;
+
+$header-nav-height: 56px;
+$header-search-width: 300px;
+$header-search-height: 32px;
+
+$rightmods: (
+  'myinfo': '#v6_pl_rightmod_myinfo', // 个人信息
+  'rank': '#v6_pl_rightmod_rank',  // 电影/音乐排名
+  'recominfo': '#v6_pl_rightmod_recominfo', // 热门话题
+  'attfeed': '#v6_pl_rightmod_attfeed', // 好友关注动态
+  'member': '#v6_trustPagelet_recom_member', // 会员专区
+  'noticeboard': '#v6_pl_rightmod_noticeboard',  // 公告栏
+  'postad': '#v6_pl_content_publishertop .title_area > .key', // 输入框广告
+  'webim': '#WB_webim',  // 私信聊天
+  'mplayer': '.PCD_mplayer',  // 音乐播放器
+  'nav': '.gn_nav_list > li:not(:last-of-type)',  // 导航
+);
+
+@each $key, $band in $rightmods {
+  #{$band} {
+    display: none !important;
+  }
+}
+
+body {
+  &.FRAME_main{
+    background: $body-bgc;
+  }
+
+  .WB_miniblog {
+    padding-top: 0;
+
+    .WB_global_nav {
+      position: static;
+      height: $header-nav-height;
+      border-top: none;
+      box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+
+      .gn_header {
+        height: 100%;
+      }
+
+      .gn_logo {
+        height: 100%;
+
+        .box {
+          height: 100%;
+
+          .logo {
+            height: 100%;
+          }
+        }
+      }
+
+      .gn_search_v2  {
+        margin-top: 11px;
+        width: $header-search-width;
+        height: $header-search-height;
+        background-color: transparent;
+        border: 1px solid #e2e2e2;
+        border-radius: $header-search-height;
+
+        .placeholder {
+          width: $header-search-width;
+          height: $header-search-height;
+          padding-top: 0;
+          padding-bottom: 0;
+          color: #999;
+          line-height: $header-search-height;
+          box-sizing: border-box;
+        }
+
+        .W_input {
+          width: $header-search-width;
+          height: $header-search-height;
+          color: #666;
+          line-height: $header-search-height;
+          box-sizing: border-box;
+        }
+
+        .W_ficon {
+          color: #888;
+        }
+
+        .gn_topmenulist_search {
+          top: 40px;
+
+          .gn_topmenulist {
+            border-radius: 6px;
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
+            border-color: #d4d4d4;
+            border: none;
+          }
+        }
+      }
+
+      .gn_position {
+        .gn_nav,
+        .gn_set {
+          margin-top: 15px;
+          margin-bottom: 15px;
+        }
+
+        .gn_set {
+          .ficon_send {
+            border-radius: 50%;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#plc_main {
+  width: 880px !important;
+}
+
+.WB_main {
+  .WB_frame {
+    padding: 0;
+    margin-top: 10px;
+    width: 1060px;
+    background: $body-bgc;
+
+    .WB_main_l {
+      margin-right: 10px;
+      box-sizing: border-box;
+
+      .WB_left_nav {
+        padding: 4px 0;
+        border: 1px solid rgba(0,0,0,.09);
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 1px 4px rgba(0,0,0,.04);
+
+        [node-type=leftnav_scroll] {
+          [node-type=moreList] {
+            display: block !important;
+          }
+
+          .levmore {
+            display: none;
+          }
+        }
+      }
+
+      .lev_Box {
+        .S_txt1 {
+          color: #666;
+
+          .ico_block {
+            & > .W_ficon {
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+
+    .WB_main_c {
+      width: 640px;
+    }
+
+    .WB_main_r {
+      width: 230px;
+      margin-right: 0;
+    }
+  }
+}
+
+#v6_pl_content_publishertop {
+  .send_weibo {
+    // margin-bottom: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    .func_area {
+      .S_txt1 {
+        font-size: 0;
+
+        .W_ficon {
+          margin-top: -10px;
+        }
+      }
+    }
+  }
+}
+
+#v6_pl_content_homefeed {
+  .WB_tab_a {
+    display: none;
+  }
+
+  #home_new_feed_tip {
+    margin: 0;
+    padding: 5px 0;
+    border-radius: 0;
+  }
+
+  .WB_feed_v3 {
+    .WB_expand {
+      padding: 6px 14px;
+      margin: 5px 0 5px 0;
+      background-color: #fcfcfc;
+      border: 1px solid #e6e6e6;
+
+      .WB_func {
+        margin-top: 8px;
+        margin-bottom: 4px;
+      }
+    }
+
+    .media_box {
+      .WB_media_a {
+        width: 510px;
+
+        .WB_pic {
+          width: 168px;
+          height: 168px;
+        }
+
+        .WB_video {
+          width: 510px;
+          height: 287px;
+        }
+      }
+    }
+  }
+}
+
+
+#v6_pl_rightmod_myinfo {
+  display: block !important;
+}
+
+#v6_pl_content_setskin {
+  display: none;
+}
+
+/*滚动条宽度*/
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* 轨道样式 */
+::-webkit-scrollbar-track {
+
+}
+
+/* Handle样式 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.2);
+}
+
+/*当前窗口未激活的情况下*/
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0,0,0,0.1);
+}
+
+/*hover 到滚动条上*/
+::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: rgba(0,0,0,0.3);
+}
+
+/*滚动条按下*/
+::-webkit-scrollbar-thumb:vertical:active {
+  background-color: rgba(0,0,0,0.7);
+}

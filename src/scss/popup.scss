@@ -1,0 +1,82 @@
+
+html *, html *:before, html *:after {
+  box-sizing: border-box;
+}
+
+html {
+  color: #333;
+  background: #fff;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizelegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, menu, nav, section {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, dl {
+  list-style-type:none
+}
+
+.clearfix:after {
+  content:".";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden
+}
+
+.clearfix{
+  zoom:1
+}
+
+.fw-body {
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 310px;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+main {
+  margin-bottom: 15px;
+}
+
+.theme-list {
+  margin-bottom: 15px;
+
+  .theme-row {
+    font-size: 0;
+
+    .theme-col {
+      display: inline-block;
+      @extend .clearfix;
+    }
+  }
+
+  .theme {
+    float: left;
+    margin: 5px;
+    width: 130px;
+    height: 160px;
+    border-radius: 2px;
+    background-color: teal;
+  }
+}
+
+.flat {
+  .flat-btn {
+    padding: 6px 14px;
+    color: #f2f2f2;
+    border-radius: 2px;
+    font-size: 17px;
+    background-color: teal;
+  }
+}
