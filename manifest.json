@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Flat Weibo",
   "version": "1.0.0",
-  "description": "简洁你的微博，去除烦人的微博推荐和广告，更加扁平，更加简单明了",
+  "description": "简洁你的微博，去除烦人的微博推荐和广告，让微博更加扁平，更加简单明了",
   "icons": {
     "16": "img/icon/icon_16.png",
     "48": "img/icon/icon_48.png",
