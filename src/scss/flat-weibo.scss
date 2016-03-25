@@ -3,7 +3,7 @@ $body-bgc: #fafafa;
 $theme-color: #1bbc9b;
 
 $header-nav-height: 56px;
-$header-search-width: 300px;
+$header-search-width: 260px;
 $header-search-height: 32px;
 
 $rightmods: (
@@ -16,7 +16,7 @@ $rightmods: (
   'postad': '#v6_pl_content_publishertop .title_area > .key', // 输入框广告
   'webim': '#WB_webim',  // 私信聊天
   'mplayer': '.PCD_mplayer',  // 音乐播放器
-  'nav': '.gn_nav_list > li:not(:last-of-type)',  // 导航
+  'nav': '.gn_nav_list > li',  // 导航
 );
 
 @each $key, $band in $rightmods {
@@ -44,7 +44,10 @@ body {
       }
 
       .gn_logo {
+        position: absolute;
+        left: 50%;
         height: 100%;
+        transform: translateX(-50%);
 
         .box {
           height: 100%;
@@ -56,6 +59,8 @@ body {
       }
 
       .gn_search_v2  {
+        float: right;
+        right: 130px;
         margin-top: 11px;
         width: $header-search-width;
         height: $header-search-height;
@@ -87,24 +92,41 @@ body {
 
         .gn_topmenulist_search {
           top: 40px;
+          left: 0;
+          width: $header-search-width;
 
           .gn_topmenulist {
             border-radius: 6px;
             box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
             border-color: #d4d4d4;
             border: none;
+
+            .selectbox {
+              li {
+                a {
+                  border-radius: 4px;
+                }
+              }
+            }
           }
         }
       }
 
       .gn_position {
-        .gn_nav,
+        // .gn_nav,
+        // .gn_set {
+        //   margin-top: 15px;
+        //   margin-bottom: 15px;
+        // }
+        // margin-right: 120px;
+        float: left;
+        margin-left: 70px;
+
         .gn_set {
           margin-top: 15px;
           margin-bottom: 15px;
-        }
+          border: none;
 
-        .gn_set {
           .ficon_send {
             border-radius: 50%;
             font-size: 20px;
@@ -132,10 +154,10 @@ body {
 
       .WB_left_nav {
         padding: 4px 0;
-        border: 1px solid rgba(0,0,0,.09);
+        // border: 1px solid rgba(0,0,0,.09);
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: 0 1px 4px rgba(0,0,0,.04);
+        box-shadow: 0 0 2px rgba(0,0,0,0.15);
 
         [node-type=leftnav_scroll] {
           [node-type=moreList] {
@@ -175,8 +197,19 @@ body {
 #v6_pl_content_publishertop {
   .send_weibo {
     // margin-bottom: 0 !important;
+    padding-top: 10px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+
+    .input {
+      margin-bottom: 2px;
+      border-color: #e0e0e0;
+      box-shadow: none;
+
+      &.clicked {
+        border-color: #fa7d3c;
+      }
+    }
 
     .func_area {
       .S_txt1 {
