@@ -19,8 +19,8 @@
   "content_scripts": [
     {
       "matches": [
-        "*://weibo.com/*/home*",
-        "*://www.weibo.com/*/home*"
+        "*://weibo.com/*",
+        "*://www.weibo.com/*"
       ],
       "js": [
         "js/jquery.min.js",

@@ -6,6 +6,8 @@ $header-nav-height: 56px;
 $header-search-width: 260px;
 $header-search-height: 32px;
 
+$box-shadow: 0 0 2px rgba(0, 0, 0, .15);
+
 $rightmods: (
   'myinfo': '#v6_pl_rightmod_myinfo', // 个人信息
   'rank': '#v6_pl_rightmod_rank',  // 电影/音乐排名
@@ -26,18 +28,19 @@ $rightmods: (
 }
 
 body {
-  &.FRAME_main{
+  &.FRAME_main,
+  &.FRAME_page {
     background: $body-bgc;
   }
 
   .WB_miniblog {
-    padding-top: 0;
+    padding-top: 0 !important;
 
     .WB_global_nav {
       position: static;
       height: $header-nav-height;
       border-top: none;
-      box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+      box-shadow: $box-shadow;
 
       .gn_header {
         height: 100%;
@@ -137,15 +140,17 @@ body {
   }
 }
 
-#plc_main {
-  width: 880px !important;
+.B_index {
+  #plc_main {
+    width: 880px !important;
+  }
 }
 
 .WB_main {
   .WB_frame {
     padding: 0;
     margin-top: 10px;
-    width: 1060px;
+    width: 1040px;
     background: $body-bgc;
 
     .WB_main_l {
@@ -154,10 +159,10 @@ body {
 
       .WB_left_nav {
         padding: 4px 0;
-        // border: 1px solid rgba(0,0,0,.09);
+        // border: 1px solid rgba(0, 0, 0, .09);
         border-radius: 4px;
         background-color: #fff;
-        box-shadow: 0 0 2px rgba(0,0,0,0.15);
+        box-shadow: 0 0 2px rgba(0, 0, 0, .15);
 
         [node-type=leftnav_scroll] {
           [node-type=moreList] {
@@ -197,7 +202,7 @@ body {
 #v6_pl_content_publishertop {
   .send_weibo {
     // margin-bottom: 0 !important;
-    padding-top: 10px;
+    padding-top: 12px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
 
@@ -223,12 +228,16 @@ body {
   }
 }
 
-#v6_pl_content_homefeed {
+.WB_cardwrap {
+  box-shadow: $box-shadow !important;
+}
+
+.WB_main {
   .WB_tab_a {
     display: none;
   }
 
-  #home_new_feed_tip {
+  .WB_notes {
     margin: 0;
     padding: 5px 0;
     border-radius: 0;
@@ -244,6 +253,38 @@ body {
       .WB_func {
         margin-top: 8px;
         margin-bottom: 4px;
+      }
+    }
+
+    .WB_expand_media_box {
+      margin: 0;
+      background-color: #fcfcfc;
+
+      .WB_expand_media {
+        padding: 0;
+        margin-bottom: 5px;
+        background-color: #fff;
+      }
+    }
+
+    .WB_feed_repeat {
+      background-color: #fcfcfc;
+
+      .WB_repeat {
+        border-color: #eee;
+
+        .feed_list {
+          .between_line {
+            background-color: #fcfcfc;
+          }
+        }
+
+        .WB_publish {
+          .W_input {
+            border-color: #e0e0e0;
+            box-shadow: none;
+          }
+        }
       }
     }
 
@@ -303,4 +344,34 @@ body {
 /*滚动条按下*/
 ::-webkit-scrollbar-thumb:vertical:active {
   background-color: rgba(0,0,0,0.7);
+}
+
+.FRAME_page {
+  &.B_page {
+    .WB_frame {
+      width: 1040px;
+
+      .WB_frame_a {
+        margin-right: 0;
+        width: 100%;
+
+        [node-type=set_skin] {
+          display: none;
+        }
+      }
+
+      .WB_frame_c {
+        width: 720px;
+        margin-right: 0;
+
+        .WB_timeline {
+          margin-left: 570px;
+        }
+      }
+
+      #plc_main {
+        width: 100%;
+      }
+    }
+  }
 }
