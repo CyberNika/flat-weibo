@@ -1,7 +1,7 @@
 {
   "name": "flat-weibo",
   "version": "0.0.1",
-  "description": "简洁你的微博，推特你的微博",
+  "description": "简洁你的微博，去除烦人的微博推荐和广告，让微博更加扁平，更加简单明了",
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:PuYart/flat-weibo.git"
   },
   "keywords": [
     "chrome-extension",
