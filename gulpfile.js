@@ -9,7 +9,7 @@ var autoprefixer = require('gulp-autoprefixer')
 var babel = require('gulp-babel')
 
 var config = {
-	distPath: 'app/',
+	distPath: 'dist/',
 	srcPath: 'src/'
 }
 
