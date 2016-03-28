@@ -1,5 +1,7 @@
 
 $body-bgc: #fafafa;
+$body-width: 1040px;
+
 $theme-color: #1bbc9b;
 
 $header-nav-height: 56px;
@@ -8,311 +10,411 @@ $header-search-height: 32px;
 
 $box-shadow: 0 0 2px rgba(0, 0, 0, .15);
 
-$rightmods: (
+$input-border-color: #e4e4e4;
+
+$home-rightmods: (
+  'skin': '#v6_pl_content_setskin',  // 主题
   'myinfo': '#v6_pl_rightmod_myinfo', // 个人信息
   'rank': '#v6_pl_rightmod_rank',  // 电影/音乐排名
   'recominfo': '#v6_pl_rightmod_recominfo', // 热门话题
   'attfeed': '#v6_pl_rightmod_attfeed', // 好友关注动态
   'member': '#v6_trustPagelet_recom_member', // 会员专区
   'noticeboard': '#v6_pl_rightmod_noticeboard',  // 公告栏
-  'postad': '#v6_pl_content_publishertop .title_area > .key', // 输入框广告
+  'postad': '.send_weibo .key', // 输入框广告
+  'inputad': '#v6_pl_content_biztips', // 输入框下广告
   'webim': '#WB_webim',  // 私信聊天
   'mplayer': '.PCD_mplayer',  // 音乐播放器
-  'nav': '.gn_nav_list > li',  // 导航
+  'group': '#v6_pl_rightmod_groups',  // 分组成员
+  'recomgroupuser': '#v6_pl_rightmod_recomgroupuser',  // 分组推荐
+  'friends': '#v6_pl_rightmod_friends',  // 好友圈成员
+  'v6_pl_rightmod_recomfriends': '#v6_pl_rightmod_recomfriends',  // 好友圈推荐
+  'ads36': '#v6_pl_rightmod_ads36',  // 广告
+  'bottomad': '.WB_frame_bottom',  // 页脚广告
 );
 
-@each $key, $band in $rightmods {
-  #{$band} {
-    display: none !important;
+$home-leftmods: (
+  'counter': '.PCD_counter',  // 关注&粉丝&微博
+  'userinfo': '.PCD_person_info',  // 个人信息
+  'fansgroup': '.PCD_ut_a',  // 粉丝群
+  'usergrid': '.PCD_user_a',  // 微关系
+  'article': '.PCD_pictext_h, .PCD_pictext_h + a',  // 文章
+  'photolist': '.PCD_photolist',  // 相册
+  'usergroup': '.PCD_user_a',  // 公开分组
+  'userfans': '.PCD_ut_a',  // 粉丝关注
+  'file': '.PCD_pictext_a, .PCD_pictext_a + a',  // 微盘文件
+  'video': '.PCD_piclist_d',  // 视频
+  'like': '.PCD_pictext_f',  // 赞
+);
+
+@each $key, $band in $home-rightmods {
+  @if $key != 'myinfo' {
+    #{$band} {
+      display: none !important;
+    }
+  }
+}
+
+@each $key, $band in $home-leftmods {
+  @if $key != 'counter' and $key != 'article' {
+    .B_page #{$band} {
+      display: none !important;
+    }
   }
 }
 
 body {
-  &.FRAME_main,
-  &.FRAME_page {
-    background: $body-bgc;
-  }
+  background: $body-bgc !important;
 
   .WB_miniblog {
-    padding-top: 0 !important;
+    // background: $body-bgc !important;
+  }
+}
 
-    .WB_global_nav {
-      position: static;
-      height: $header-nav-height;
-      border-top: none;
-      box-shadow: $box-shadow;
+.WB_miniblog {
+  padding-top: 0 !important;
 
-      .gn_header {
+  // header
+  .WB_global_nav {
+    position: static;
+    height: $header-nav-height;
+    border-top: none;
+    box-shadow: $box-shadow;
+
+    .gn_header {
+      width: $body-width;
+      height: 100%;
+    }
+
+    .gn_logo {
+      position: absolute;
+      left: 50%;
+      height: 100%;
+      transform: translateX(-50%);
+
+      .box {
         height: 100%;
-      }
 
-      .gn_logo {
-        position: absolute;
-        left: 50%;
-        height: 100%;
-        transform: translateX(-50%);
-
-        .box {
+        .logo {
           height: 100%;
-
-          .logo {
-            height: 100%;
-          }
         }
       }
+    }
 
-      .gn_search_v2  {
-        float: right;
-        right: 130px;
-        margin-top: 11px;
+    .gn_search_v2 {
+      float: right;
+      margin-top: 11px;
+      width: $header-search-width;
+      height: $header-search-height;
+      background-color: transparent;
+      border: 1px solid #e2e2e2;
+      border-radius: $header-search-height;
+
+      .placeholder {
         width: $header-search-width;
         height: $header-search-height;
-        background-color: transparent;
-        border: 1px solid #e2e2e2;
-        border-radius: $header-search-height;
+        padding-top: 0;
+        padding-bottom: 0;
+        color: #999;
+        line-height: $header-search-height;
+        box-sizing: border-box;
+      }
 
-        .placeholder {
-          width: $header-search-width;
-          height: $header-search-height;
-          padding-top: 0;
-          padding-bottom: 0;
-          color: #999;
-          line-height: $header-search-height;
-          box-sizing: border-box;
-        }
+      .W_input {
+        width: $header-search-width;
+        height: $header-search-height;
+        color: #666;
+        line-height: $header-search-height;
+        box-sizing: border-box;
+      }
 
-        .W_input {
-          width: $header-search-width;
-          height: $header-search-height;
-          color: #666;
-          line-height: $header-search-height;
-          box-sizing: border-box;
-        }
+      .W_ficon {
+        color: #888;
+      }
 
-        .W_ficon {
-          color: #888;
-        }
+      .gn_topmenulist_search {
+        top: 40px;
+        left: 0;
+        width: $header-search-width;
 
-        .gn_topmenulist_search {
-          top: 40px;
-          left: 0;
-          width: $header-search-width;
+        .gn_topmenulist {
+          border-radius: 6px;
+          box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
+          border-color: #d4d4d4;
+          border: none;
 
-          .gn_topmenulist {
-            border-radius: 6px;
-            box-shadow: 0 0 2px 1px rgba(0, 0, 0, .1);
-            border-color: #d4d4d4;
-            border: none;
-
-            .selectbox {
-              li {
-                a {
-                  border-radius: 4px;
-                }
+          .selectbox {
+            li {
+              a {
+                border-radius: 4px;
               }
             }
           }
         }
       }
+    }
 
-      .gn_position {
-        // .gn_nav,
-        // .gn_set {
-        //   margin-top: 15px;
-        //   margin-bottom: 15px;
-        // }
-        // margin-right: 120px;
-        float: left;
-        margin-left: 70px;
+    .gn_position {
+      float: left;
+      margin-left: 0;
 
-        .gn_set {
-          margin-top: 15px;
-          margin-bottom: 15px;
-          border: none;
+      .gn_nav {
+        display: none;
+      }
 
-          .ficon_send {
-            border-radius: 50%;
-            font-size: 20px;
-          }
+      .gn_set {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        border: none;
+
+        .ficon_send {
+          border-radius: 50%;
+          font-size: 20px;
+        }
+
+        .gn_set_list:first-child {
+          margin-left: 0;
         }
       }
     }
   }
-}
 
-.B_index {
-  #plc_main {
-    width: 880px !important;
-  }
-}
-
-.WB_main {
   .WB_frame {
     padding: 0;
     margin-top: 10px;
-    width: 1040px;
+    width: $body-width;
     background: $body-bgc;
-
-    .WB_main_l {
-      margin-right: 10px;
-      box-sizing: border-box;
-
-      .WB_left_nav {
-        padding: 4px 0;
-        // border: 1px solid rgba(0, 0, 0, .09);
-        border-radius: 4px;
-        background-color: #fff;
-        box-shadow: 0 0 2px rgba(0, 0, 0, .15);
-
-        [node-type=leftnav_scroll] {
-          [node-type=moreList] {
-            display: block !important;
-          }
-
-          .levmore {
-            display: none;
-          }
-        }
-      }
-
-      .lev_Box {
-        .S_txt1 {
-          color: #666;
-
-          .ico_block {
-            & > .W_ficon {
-              color: #666;
-            }
-          }
-        }
-      }
-    }
-
-    .WB_main_c {
-      width: 640px;
-    }
-
-    .WB_main_r {
-      width: 230px;
-      margin-right: 0;
-    }
   }
 }
 
-#v6_pl_content_publishertop {
-  .send_weibo {
-    // margin-bottom: 0 !important;
-    padding-top: 12px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+// home
+.B_index {
+  .WB_main_l {
+    margin-right: 10px;
+    box-sizing: border-box;
+  }
 
-    .input {
-      margin-bottom: 2px;
-      border-color: #e0e0e0;
-      box-shadow: none;
+  // 左侧导航
+  .WB_left_nav {
+    padding: 4px 0;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: $box-shadow;
 
-      &.clicked {
-        border-color: #fa7d3c;
-      }
+    [node-type=moreList] {
+      display: block !important;
     }
 
-    .func_area {
+    .levmore {
+      display: none;
+    }
+
+    .lev_Box {
       .S_txt1 {
-        font-size: 0;
+        color: #666;
 
-        .W_ficon {
-          margin-top: -10px;
+        .ico_block {
+          & > .W_ficon {
+            color: #666;
+          }
         }
       }
     }
   }
-}
 
-.WB_cardwrap {
-  box-shadow: $box-shadow !important;
-}
-
-.WB_main {
-  .WB_tab_a {
-    display: none;
+  // 内容
+  #plc_main {
+    width: $body-width - 160px !important;
   }
 
-  .WB_notes {
-    margin: 0;
-    padding: 5px 0;
-    border-radius: 0;
-  }
+  // 中间内容流
+  .WB_main_c {
+    width: 640px;
 
-  .WB_feed_v3 {
-    .WB_expand {
-      padding: 6px 14px;
-      margin: 5px 0 5px 0;
-      background-color: #fcfcfc;
-      border: 1px solid #e6e6e6;
+    // 发送微博
+    .send_weibo {
+      padding-top: 13px;
+      padding-bottom: 12px;
 
-      .WB_func {
-        margin-top: 8px;
-        margin-bottom: 4px;
+      .input {
+        margin-bottom: 2px;
+        border-color: $input-border-color;
+        box-shadow: none;
+
+        &.clicked {
+          border-color: #fa7d3c;
+        }
+      }
+
+      .func_area {
+        .S_txt1 {
+          font-size: 0;
+
+          .W_ficon {
+            margin-top: -10px;
+          }
+        }
       }
     }
 
-    .WB_expand_media_box {
+    // 过滤
+    .WB_tab_a {
+      display: none;
+    }
+
+    // 新微博提醒
+    .WB_notes {
       margin: 0;
-      background-color: #fcfcfc;
+      padding: 5px 0;
+      border-radius: 0;
+    }
+  }
 
-      .WB_expand_media {
-        padding: 0;
+  // 右侧内容流
+  .WB_main_r {
+    width: 230px;
+    margin-right: 0;
+  }
+}
+
+.B_page {
+  .WB_frame {
+    width: $body-width !important;
+
+    .WB_frame_a {
+      margin-right: 0;
+      width: 100%;
+
+      [node-type=set_skin] {
+        display: none;
+      }
+
+      [node-type=cover] {
+        background-size: cover;
+      }
+    }
+
+    .WB_frame_b {
+      .WB_cardwrap {
         margin-bottom: 5px;
-        background-color: #fff;
       }
     }
 
-    .WB_feed_repeat {
-      background-color: #fcfcfc;
+    .WB_frame_c {
+      width: 720px;
+      margin-right: 0;
 
-      .WB_repeat {
-        border-color: #eee;
+      .WB_tab_a {
+        display: none;
+      }
 
-        .feed_list {
-          .between_line {
-            background-color: #fcfcfc;
-          }
-        }
+      .WB_cardwrap {
+        margin-bottom: 0;
+      }
 
-        .WB_publish {
-          .W_input {
-            border-color: #e0e0e0;
-            box-shadow: none;
-          }
-        }
+      .WB_timeline {
+        margin-left: 550px;
+      }
+
+      .PCD_piclist_b {
+        display: none;
+
+        // .m_wrap {
+        //   width: 720px;
+        //
+        //   .pic_slider {
+        //     width: 720px;
+        //
+        //     .pic {
+        //       height: 270px;
+        //     }
+        //   }
+        // }
       }
     }
 
-    .media_box {
-      .WB_media_a {
-        width: 510px;
+    #plc_main {
+      width: 100% !important;
+    }
+  }
 
-        .WB_pic {
-          width: 168px;
-          height: 168px;
-        }
+  #base_scrollToTop {
+    margin-left: 550px;
+  }
 
-        .WB_video {
-          width: 510px;
-          height: 287px;
-        }
-      }
+  .member_box {
+    .member_li {
+      width: 330px !important;
     }
   }
 }
 
+// 微博流
+.WB_feed_v3 {
+  .WB_expand {
+    padding: 6px 14px !important;
+    margin: 5px 0 5px 0 !important;
+    background-color: #fcfcfc;
+    border: 1px solid #e6e6e6;
 
-#v6_pl_rightmod_myinfo {
-  display: block !important;
-}
+    .WB_func {
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+  }
 
-#v6_pl_content_setskin {
-  display: none;
+  .WB_expand_media_box {
+    margin: 0 !important;
+    background-color: #fcfcfc;
+
+    .WB_expand_media {
+      padding: 0 !important;
+      margin-bottom: 5px;
+      background-color: #fcfcfc;
+    }
+  }
+
+  .WB_feed_repeat {
+    background-color: #fcfcfc;
+
+    .WB_repeat {
+      border-color: #eee;
+    }
+  }
+
+  .repeat_list {
+    .list_ul {
+      .between_line {
+        background-color: #fcfcfc;
+      }
+    }
+  }
+
+  .WB_feed_publish {
+    background-color: #fcfcfc;
+
+    .WB_publish {
+      .W_input {
+        border-color: $input-border-color;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .media_box {
+    .WB_media_a {
+      width: 510px;
+
+      .WB_pic {
+        width: 168px;
+        height: 168px;
+      }
+
+      .WB_video {
+        width: 510px;
+        height: 287px;
+      }
+    }
+  }
 }
 
 /*滚动条宽度*/
@@ -344,34 +446,4 @@ body {
 /*滚动条按下*/
 ::-webkit-scrollbar-thumb:vertical:active {
   background-color: rgba(0,0,0,0.7);
-}
-
-.FRAME_page {
-  &.B_page {
-    .WB_frame {
-      width: 1040px;
-
-      .WB_frame_a {
-        margin-right: 0;
-        width: 100%;
-
-        [node-type=set_skin] {
-          display: none;
-        }
-      }
-
-      .WB_frame_c {
-        width: 720px;
-        margin-right: 0;
-
-        .WB_timeline {
-          margin-left: 570px;
-        }
-      }
-
-      #plc_main {
-        width: 100%;
-      }
-    }
-  }
 }
