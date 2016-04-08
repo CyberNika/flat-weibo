@@ -2,6 +2,8 @@
 $body-bgc: #fafafa;
 $body-width: 1040px;
 
+$second-bgc: #fcfcfc;
+
 $theme-color: #1bbc9b;
 
 $header-nav-height: 56px;
@@ -353,7 +355,7 @@ body {
   .WB_expand {
     padding: 6px 14px !important;
     margin: 5px 0 5px 0 !important;
-    background-color: #fcfcfc;
+    background-color: $second-bgc;
     border: 1px solid #e6e6e6;
 
     .WB_func {
@@ -364,33 +366,41 @@ body {
 
   .WB_expand_media_box {
     margin: 0 !important;
-    background-color: #fcfcfc;
+    background-color: $second-bgc;
 
     .WB_expand_media {
       padding: 0 !important;
       margin-bottom: 5px;
-      background-color: #fcfcfc;
+      background-color: $second-bgc;
     }
   }
 
   .WB_feed_repeat {
-    background-color: #fcfcfc;
+    background-color: $second-bgc;
 
     .WB_repeat {
       border-color: #eee;
     }
   }
 
+  .WB_feed_together {
+    background-color: $second-bgc;
+
+    .W_fl {
+      background-color: $second-bgc;
+    }
+  }
+
   .repeat_list {
     .list_ul {
       .between_line {
-        background-color: #fcfcfc;
+        background-color: $second-bgc;
       }
     }
   }
 
   .WB_feed_publish {
-    background-color: #fcfcfc;
+    background-color: $second-bgc;
 
     .WB_publish {
       .W_input {
