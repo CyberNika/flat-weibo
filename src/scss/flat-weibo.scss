@@ -178,6 +178,30 @@ body {
         }
       }
     }
+    
+    //顶部信息菜单
+    .gn_topmenulist {
+      right: initial;
+      left: -1em;
+
+      .W_layer_arrow .W_arrow_bor_t {
+        right: initial;
+        left: 15px;
+      }
+    }
+
+    //提醒
+    .gn_topmenulist_tips {
+      right: initial;
+      left: -11px;
+      top: 34px;
+    }
+
+    //顶部设置菜单
+    .gn_topmenulist_set{
+      right: initial;
+      left: -12px;
+    }
   }
 
   .WB_frame {
@@ -415,16 +439,24 @@ body {
       width: 510px;
 
       .WB_pic {
-        width: 168px;
-        height: 168px;
+        width: 166px;
+        height: 166px;
       }
 
       .WB_video {
-        width: 510px;
-        height: 287px;
+        width: 500px;
+        height: 281px;
       }
     }
   }
+  // .WB_feed_expand {
+  //   .media_box {
+  //     .WB_pic {
+  //       width: 166px;
+  //       height: 166px;
+  //     }
+  //   }
+  // }
 }
 
 /*滚动条宽度*/
